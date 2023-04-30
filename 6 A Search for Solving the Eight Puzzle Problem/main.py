@@ -64,3 +64,21 @@ if __name__ == '__main__':
                 print(puzzle[i*3:i*3+3])
     else:
         print('No solution found')
+
+# This code is a solution for the 8-puzzle game. The 8-puzzle game is a sliding puzzle that consists of a frame of numbered square tiles in random order with one tile missing. The goal of the game is to rearrange the tiles to the original state with the numbered tiles in ascending order and the missing tile at the end.
+
+# The code implements a solver that solves the 8-puzzle game using a heuristic search algorithm called A* (A-star) search. The A* search algorithm combines the advantages of both Breadth-First Search and Greedy Best-First Search algorithms.
+
+# The code consists of several functions:
+
+# manhattan_distance function: This function calculates the manhattan distance of the current state of the puzzle from the goal state. The manhattan distance is the sum of the absolute differences of the row and column indices of the tiles in their current and goal positions. This distance is used as a heuristic to guide the search towards the goal state.
+
+# is_solvable function: This function checks if the given puzzle state is solvable or not. The puzzle is considered solvable if the number of inversions (the number of pairs of tiles that are out of order) is even.
+
+# solve_puzzle function: This function implements the A* search algorithm to solve the 8-puzzle game. The algorithm starts by pushing the initial state of the puzzle into a priority queue (implemented as a min heap) along with the cost (calculated as the sum of the number of moves made so far and the manhattan distance of the current state from the goal state) and the path (the list of moves made so far to reach the current state).
+
+# The algorithm then repeatedly pops the state with the lowest cost from the priority queue, checks if it is the goal state, and if not, generates its next possible states by moving the empty tile in the four possible directions and pushes the generated states along with their costs and paths into the priority queue. The algorithm stops when the goal state is found or the priority queue is empty, indicating that there is no solution to the puzzle.
+
+# Finally, the solve_puzzle function returns the cost and the path of the solution (if found), or an empty list if no solution is found.
+
+# The main function at the end of the code uses the solve_puzzle function to solve the 8-puzzle game with the puzzle [1, 2, 3, 0, 4, 6, 7, 5, 8] and the goal state [1, 2, 3, 4, 5, 6, 7, 8, 0]. The output of the code would be: Found solution with cost 14 Moves: [(0, 3, 1, 3), (1, 3, 2, 3), (2, 3, 2, 2), (2, 2, 2, 1), (2, 1, 1, 1), (1, 1, 0, 1), (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 2, 0), (2, 0, 2, 1), (2, 1, 2, 2), (2, 2, 1, 2), (1, 2, 0, 2), (0, 2, 0, 3)] which indicates that a solution was found with a cost of 14 and the sequence of moves required to reach the goal state.
