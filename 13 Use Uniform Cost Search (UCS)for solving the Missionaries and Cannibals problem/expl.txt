@@ -1,0 +1,7 @@
+Explanation:
+
+The code defines a State class that represents a possible state of the problem, with attributes left_m, left_c, and boat_pos indicating the number of missionaries and cannibals on the left bank, and the position of the boat. It also defines methods to compare two states for equality and ordering, and to check if a state is valid (i.e., does not violate the cannibals-missionaries rule).
+
+The ucs function implements the UCS algorithm using a priority queue. It starts by adding the initial state to the queue with cost 0 and an empty path. Then, while the queue is not empty, it dequeues the state with the lowest cost and checks if it is the goal state (i.e., all missionaries and cannibals are on the right bank). If not, it generates the successors of the state (i.e., all valid states that can be reached from it), computes their costs (which are always 1 in this problem), and adds them to the queue with the cumulative cost and path.
+
+Finally, the main code creates an initial state with 3 missionaries, 3 cannibals, and the boat on the left bank, calls the ucs function to find a solution (if any), and prints the solution steps (i.e., the states visited and the actions taken to reach them). The solution is found by backtracking the path from the goal state to the initial state and printing the boat movements and number of people on each bank at each step. If no solution is found, a message is printed indicating that.

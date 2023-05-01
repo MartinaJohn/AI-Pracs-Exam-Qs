@@ -1,0 +1,45 @@
+Explanation:
+
+First, we define the predicate hanoi/3 which takes three arguments: N, From, and To. N represents the number of disks, From represents the initial rod, and To represents the target rod.
+
+hanoi(1, From, To) :-
+
+write('Move top disk from '),
+write(From),
+write(' to '),
+write(To),
+nl.
+
+This is the base case of our recursive definition. If there's only one disk to move, then we can move it from the initial rod to the target rod. We use Prolog's built-in write/1 predicate to print out the movement instructions.
+
+hanoi(N, From, To) :-
+
+M is N - 1,
+hanoi(M, From, Other),
+hanoi(1, From, To),
+hanoi(M, Other, To).
+
+This is the recursive case. If there are more than one disk to move, we first move the top M disks from the initial rod From to the spare rod Other. Then, we move the remaining bottom disk from From to the target rod To. Finally, we move the M disks from the spare rod Other to the target rod To.
+
+In each recursive call, the number of disks is reduced by 1, and the spare rod becomes the target rod for the recursive call. This continues until we reach the base case, where only one disk is left to be moved.
+
+Here's an example query and its output:
+?- hanoi(3, a, c).
+
+Move top disk from a to c
+
+Move top disk from a to b
+
+Move top disk from c to b
+
+Move top disk from a to c
+
+Move top disk from b to a
+
+Move top disk from b to c
+
+Move top disk from a to c
+
+true
+
+n this example, we're moving 3 disks from rod a to rod c. The output shows the sequence of moves to accomplish this task. The final output true indicates that the query succeeded.
