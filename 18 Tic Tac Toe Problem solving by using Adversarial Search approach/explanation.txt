@@ -1,0 +1,33 @@
+Explanation:
+
+The code is an implementation of the game Tic Tac Toe. The game board is represented as a 2D list of size 3x3. The players are represented as 1 for X and -1 for O. The game can be played between a human player and a computer player that uses the alpha-beta pruning algorithm to make its moves.
+
+The code starts by defining the game board, which is initially empty. The board is represented as a 2D list of size 3x3, where each element can be either 0 (empty), 1 (X), or -1 (O).
+
+The function Gameboard() takes the current game board as input and prints it to the console in a visually pleasing way.
+
+The function Clearboard() takes the current game board as input and sets all elements to 0 (empty).
+
+The function winningPlayer() takes the current game board and a player as input and checks if that player has won the game. It does this by checking all possible winning conditions (rows, columns, and diagonals) and returns True if any of them are met.
+
+The function gameWon() takes the current game board as input and returns True if either player has won the game, and False otherwise.
+
+The function printResult() takes the current game board as input and prints the result of the game to the console (i.e., which player won or if it was a draw).
+
+The function blanks() takes the current game board as input and returns a list of all empty cells on the board.
+
+The function boardFull() takes the current game board as input and returns True if the board is full (i.e., no empty cells), and False otherwise.
+
+The function setMove() takes the current game board, the row and column indices of a cell, and a player as input, and sets the value of the cell to the player's number.
+
+The function playerMove() takes the current game board as input and allows the human player to make a move. It prompts the user to enter a number between 1-9, which corresponds to a cell on the board, and sets the value of that cell to 1 (X) if it is empty.
+
+The function getScore() takes the current game board as input and returns a score based on the state of the game. The score is 10 if X has won, -10 if O has won, and 0 otherwise.
+
+The function abminimax() takes the current game board, the depth of the search tree, the alpha and beta values for pruning, and the current player as input, and returns the row and column indices of the best move, as well as its score. It uses the alpha-beta pruning algorithm to efficiently search the game tree and find the best move for the current player.
+
+The function o_comp() takes the current game board as input and makes a move for the computer player O using the alpha-beta pruning algorithm. If it is the first move of the game, it chooses a random cell on the board. Otherwise, it calls the abminimax() function to find the best move.
+
+The function x_comp() is similar to o_comp() but makes a move for the computer player X.
+
+The game is played by calling the playerMove() function to let the human player make a move, and then calling the o_comp() or x_comp() function to let the computer player make a move. This continues until either player has won or the game is a draw. The result of the game is printed to the console using the printResult() function.
